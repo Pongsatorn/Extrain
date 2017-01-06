@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mydb">
+  <database-model serializer="dbm" rdbms="DERBY" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="APP">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="NULLID"/>
+    <schema id="4" parent="1" name="SQLJ"/>
+    <schema id="5" parent="1" name="SYS"/>
+    <schema id="6" parent="1" name="SYSCAT"/>
+    <schema id="7" parent="1" name="SYSCS_DIAG"/>
+    <schema id="8" parent="1" name="SYSCS_UTIL"/>
+    <schema id="9" parent="1" name="SYSFUN"/>
+    <schema id="10" parent="1" name="SYSIBM"/>
+    <schema id="11" parent="1" name="SYSPROC"/>
+    <schema id="12" parent="1" name="SYSSTAT"/>
+    <table id="13" parent="2" name="ADDRESS"/>
+    <table id="14" parent="2" name="CUSTOMER"/>
+    <table id="15" parent="2" name="EMPLOYEE"/>
+    <column id="16" parent="13" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>GENERATED_BY_DEFAULT</DefaultExpression>
+    </column>
+    <column id="17" parent="13" name="CHVHOMNUMBER">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="18" parent="13" name="CHVPROVINCE">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="19" parent="13" name="CHVROAD">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="20" parent="13" name="CHVZIPCODE">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="21" parent="13" name="ADCUSTID">
+      <Position>6</Position>
+      <DataType>BIGINT(19)|-5</DataType>
+    </column>
+    <key id="22" parent="13" name="SQL170104131921660">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="23" parent="13" name="FKBB979BF41DEAA687">
+      <ColNames>ADCUSTID</ColNames>
+      <RefSchemaName>APP</RefSchemaName>
+      <RefTableName>CUSTOMER</RefTableName>
+      <RefKeyName>SQL170104131921690</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="24" parent="14" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>GENERATED_BY_DEFAULT</DefaultExpression>
+    </column>
+    <column id="25" parent="14" name="INTAGE">
+      <Position>2</Position>
+      <DataType>INTEGER(10)|4</DataType>
+    </column>
+    <column id="26" parent="14" name="CHVFIRNAM">
+      <Position>3</Position>
+      <DataType>VARCHAR(50)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="14" name="CHVLASNAM">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="28" parent="14" name="SQL170104131921690">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="15" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>GENERATED_BY_DEFAULT</DefaultExpression>
+    </column>
+    <column id="30" parent="15" name="CHVFIRNAM">
+      <Position>2</Position>
+      <DataType>VARCHAR(50)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="15" name="CHVLASNAM">
+      <Position>3</Position>
+      <DataType>VARCHAR(50)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="15" name="INTAGE">
+      <Position>4</Position>
+      <DataType>INTEGER(10)|4</DataType>
+    </column>
+    <key id="33" parent="15" name="SQL170104131921620">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+
+    <!--Event-->
+    <!--
+        (click, dblclick, mouseenter, mouseleave
+
+    -->
+    <script>
+        $(document).ready(function(){
+            $("p").click(function () {
+                $(this).css(
+                    "background-color","lightgray");
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+    <p id="keng">Hello jQuery</p>
+    <input id="in" type="text">
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+ <button type="button" id="btn">Click me</button>
+
+
+<script>
+    var test='';
+    var str = '';
+    var a=10;
+
+
+
+
+    var data = {
+        "persons": [
+            {
+                "name": "demo1",
+                "gender": "male",
+                "pet" : [
+                    "  {"name" : "A" , "color" : "blue"},
+                      {"name" : "B" , "color" : "orange"},
+                     {"name" : "C" , "color" : "pink"}
+
+                ]
+            },
+            {
+                "name": "demo2",
+                "gender": "male"
+            },
+            {
+                "name": "demo3",
+                "gender": "female"
+            }
+        ]
+    };
+
+    alert(data.persons[0].name);
+
+</script>
+
+</body>
+</html>

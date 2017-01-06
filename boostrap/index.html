@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+
+        /* Test JQuery */
+//        $(function () {
+//           $("#value1").on({
+//
+//               mouseenter: function(){
+//                   $(this).css("background-color", "lightgray");
+////                   $(this).toggle();
+//               },
+//               mouseleave: function(){
+//                   $(this).css("background-color", "lightblue");
+////                   $(this).toggle();
+//               },
+//               click: function(){
+//                   $(this).css("background-color", "yellow");
+//               },
+//               dblclick: function () {
+//                   $(this).css("background-color", "red");
+//               },
+//               focus: function(){
+//                   $(this).css("background-color", "green");
+//               },
+//               blur: function () {
+//                   $(this).css("background-color", "black");
+//               },
+//               keydown: function () {
+//                   alert("KeyDown");
+//               },
+//               keyup: function () {
+//                   alert("KeyUp");
+//               },
+//               keypress: function () {
+//                   alert("KeyPress")
+//               }
+//
+//           });
+//           $("#summit").click(function () {
+//              alert("Submit")
+//           });
+//
+//           $("#ok1").click(function () {
+////               $("div").remove("#demo");
+////              $("#ok2").toggle(1000);
+////               $("#demo").before("kengg");
+//
+//            $("#demo").text(function (i,oldText) {
+//                  return "Old text: " + oldText + " New text: Hello world! (index: " + i + ")";
+//              });
+//
+//           });
+//           $("#ok2").click(function () {
+////              $("#ok1").fadeToggle(1000);
+//               $("#ok3").fadeTo(0.5);
+////               $("#row1").slideToggle();
+//           });
+//        });
+        var checkspace1 = -1,
+            checkspace2 = -1,
+            checkspace3 = -1,
+            checkspace4 = -1,
+            checkspace5 = -1;
+        $(function () {
+            $("#clearColor").click(function () {
+//               swal("sucess","ssss");
+                swal("Hi","Hello world","success");
+//                swal({
+//                    title: "Error!",
+//                    text: "Here's my error message!",
+//                    type: "error",
+//                    confirmButtonText: "Cool"
+//                });
+            });
+
+            $("#summit").click(function () {
+               var hisPlus = $("#plus").val();
+               var hisMul  = $("#multi").val();
+
+               $("#HistoryPlus").append("<tr><td class='cblue'>"+hisPlus+"</td></tr>");
+               $("#HistoryMul").append("<tr><td class='cblue'>"+hisMul+"</td></tr>");
+            });
+            $("#reset").click(function () {
+                $("#v1").val("");
+                $("#v2").val("");
+                $("#v3").val("");
+                $("#v4").val("");
+                $("#v5").val("");
+                $("#value1").val("");
+                $("#value2").val("");
+                $("#value3").val("");
+                $("#value4").val("");
+                $("#value5").val("");
+                $("#plus").val("");
+                $("#multi").val("");
+                $("#value5").removeAttr('disabled');
+                $("#value4").removeAttr('disabled');
+                $("#value3").removeAttr('disabled');
+                $("#value2").removeAttr('disabled');
+                $("#value1").removeAttr('disabled');
+
+            });
+
+            $("#value1").on({
+                keyup:function (e) {/*check space bar*/
+                    if (e.keyCode == 32){//has space bar
+                        checkspace1 = 1;
+                    }
+                },
+                focus:function () {
+                    $(this).css("background-color", "white")
+                }
+            });
+            $("#value2").on({
+                keyup:function (e) {
+                    if (e.keyCode == 32){
+                        checkspace2 = 1;
+                    }
+                },
+                focus:function () {
+                    $(this).css("background-color", "white")
+                },
+                mouseenter:function () {
+                    $(this).css("background-color", "#2b669a")
+                },
+                mouseleave:function () {
+                    $(this).css("background-color", "white")
+                }
+            });
+
+            $("#value3").on({
+                keyup:function (e) {
+                    if (e.keyCode == 32){
+                        checkspace3 = 1;
+                    }
+                },
+                focus:function () {
+                    $(this).css("background-color", "white")
+                },
+                mouseenter:function () {
+                    $(this).css("background-color", "green")
+                },
+                mouseleave:function () {
+                    $(this).css("background-color", "white")
+                }
+            });
+            $("#value4").on({
+                keyup:function (e) {
+                    if (e.keyCode == 32){
+                        checkspace4 = 1;
+                    }
+                },
+                focus:function () {
+                    $(this).css("background-color", "white")
+                },
+                mouseenter:function () {
+                    $(this).css("background-color", "goldenrod")
+                },
+                mouseleave:function () {
+                    $(this).css("background-color", "white")
+                }
+            });
+            $("#value5").on({
+                keyup:function (e) {
+                    if (e.keyCode == 32){
+                        checkspace5 = 1;
+                    }
+                },
+                focus:function () {
+                    $(this).css("background-color", "white")
+                },
+                mouseenter:function () {
+                    $(this).css("background-color", "brown")
+                },
+                mouseleave:function () {
+                    $(this).css("background-color", "white")
+                }
+            });
+
+            $("#ok1").on({
+                click: function () {
+                    if ($.isNumeric($("#value1").val())){
+                        document.getElementById("v1").value = document.getElementById("value1").value;
+                        $("#value1").attr('disabled', 'disabled');
+                    }
+                    else if (checkspace1 == 1){
+                        $('#myModalspace').modal();
+                        $("#value1").val("");
+                    }
+                    else if (/\D/.test($("#value1").val())){
+                        $('#myModalchar').modal();
+                        $("#value1").val("");
+                    }
+                    else if (!$("#value1").val()){
+                        $("#v1").val(0);
+                        $("#value1").val(0);
+                        $("#value1").attr('disabled', 'disabled');
+                    }
+                }
+            });
+            $("#ok2").on({
+                click: function () {
+                    if ($.isNumeric($("#value2").val())){
+                        document.getElementById("v2").value = document.getElementById("value2").value;
+                        $("#value2").attr('disabled', 'disabled');
+                    }
+                    else if (checkspace2 == 1){
+                        $('#myModalspace').modal();
+                        $("#value2").val("");
+                    }
+                    else if (/\D/.test($("#value2").val())){
+                        $('#myModalchar').modal();
+                        $("#value2").val("");
+                    }
+                    else if (!$("#value2").val()){
+                        $("#v2").val(0);
+                        $("#value2").val(0);
+                        $("#value2").attr('disabled', 'disabled');
+                    }
+                }
+            });
+            $("#ok3").on({
+                click: function () {
+                    if ($.isNumeric($("#value3").val())){
+                        document.getElementById("v3").value = document.getElementById("value3").value;
+                        $("#value3").attr('disabled', 'disabled');
+                    }
+                    else if (checkspace3 == 1){
+                        $('#myModalspace').modal();
+                        $("#value3").val("");
+                    }
+                    else if (/\D/.test($("#value3").val())){
+                        $('#myModalchar').modal();
+                        $("#value3").val("");
+                    }
+                    else if (!$("#value3").val()){
+                        $("#v3").val(0);
+                        $("#value3").val(0);
+                        $("#value3").attr('disabled', 'disabled');
+                    }
+
+
+                }
+            });
+            $("#ok4").on({
+                click: function () {
+                    if ($.isNumeric($("#value4").val())){
+                        document.getElementById("v4").value = document.getElementById("value4").value;
+                        $("#value4").attr('disabled', 'disabled');
+                    }
+                    else if (checkspace4 == 1){
+                        $('#myModalspace').modal();
+                        $("#value4").val("");
+                    }
+                    else if (/\D/.test($("#value4").val())){
+                        $('#myModalchar').modal();
+                        $("#value4").val("");
+
+                    }
+                    else if (!$("#value4").val()){
+                        $("#v4").val(0);
+                        $("#value4").val(0);
+                        $("#value4").attr('disabled', 'disabled');
+                    }
+
+
+                }
+            });
+            $("#ok5").on({
+                click: function () {
+                    if ($.isNumeric($("#value5").val())){
+                        document.getElementById("v5").value = document.getElementById("value5").value;
+                        $("#value5").attr('disabled', 'disabled');
+                    }
+                    else if (checkspace5 == 1){
+                        $('#myModalspace').modal();
+                        $("#value5").val("");
+                    }
+                    else if (/\D/.test($("#value5").val())){
+                        $('#myModalchar').modal();
+                        $("#value5").val("");
+                    }
+                    else if (!$("#value5").val()){
+                        $("#v5").val(0);
+                        $("#value5").val(0);
+                        $("#value5").attr('disabled', 'disabled');
+                    }
+
+
+                }
+            });
+        });
+
+        function dis(btn) {
+            var a = btn.getAttributeNode("color").value;
+            alert(a);
+        }
+
+        function plus() {
+            var sum = null;
+            var num1,num2,num3,num4,num5;
+            var check = 0;
+            if (!!document.getElementById("v1").value ){ // not null
+                 num1 = Number(document.getElementById("v1").value);
+                sum+=num1;
+                check++;
+            }
+            if (!!document.getElementById("v2").value ){
+                 num2 = Number(document.getElementById("v2").value);
+                sum+=num2;
+                check++;
+            }
+            if (!!document.getElementById("v3").value ){
+                 num3 = Number(document.getElementById("v3").value);
+                sum+=num3;
+                check++;
+            }
+            if (!!document.getElementById("v4").value ){
+                 num4 = Number(document.getElementById("v4").value);
+                sum+=num4;
+                check++;
+            }
+            if (!!document.getElementById("v5").value ){
+                 num5 = Number(document.getElementById("v5").value);
+                sum+=num5;
+                check++;
+            }
+            if (check !=0 )
+                document.getElementById("plus").value = sum;
+            else
+                document.getElementById("plus").value = "Invalid";
+        }
+        function multi() {
+            var num1,num2,num3,num4,num5;
+            var check = 0;
+            var mul = 1;
+            if (!!document.getElementById("v1").value ){ // not null
+                num1 = Number(document.getElementById("v1").value);
+                mul*=num1;
+                check++;
+            }
+            if (!!document.getElementById("v2").value ){
+                num2 = Number(document.getElementById("v2").value);
+                mul*=num2;
+                check++;
+            }
+            if (!!document.getElementById("v3").value ){
+                num3 = Number(document.getElementById("v3").value);
+                mul*=num3;
+                check++;
+            }
+            if (!!document.getElementById("v4").value ){
+                num4 = Number(document.getElementById("v4").value);
+                mul*=num4;
+                check++;
+            }
+            if (!!document.getElementById("v5").value ){
+                num5 = Number(document.getElementById("v5").value);
+                mul*=num5;
+                check++;
+            }
+            if (check != 0)
+                document.getElementById("multi").value = mul;
+            else
+                document.getElementById("multi").value = "Invalid";
+        }
+
+        function change(c_id){
+            var cid = c_id.id;
+            if (cid == 'change1'){
+                checkspace1 = -1;
+                document.getElementById("v1").value ="";
+                document.getElementById("value1").value ="";
+                $("#value1").removeAttr('disabled');
+            }
+            else if (cid == 'change2'){
+                checkspace2 = -1;
+                document.getElementById("v2").value = "";
+                document.getElementById("value2").value ="";
+                $("#value2").removeAttr('disabled');
+            }
+            else if (cid == 'change3'){
+                checkspace3 = -1;
+                document.getElementById("v3").value = "";
+                document.getElementById("value3").value ="";
+                $("#value3").removeAttr('disabled');
+            }
+            else if (cid == 'change4'){
+                checkspace4 = -1;
+                document.getElementById("v4").value = "";
+                document.getElementById("value4").value ="";
+                $("#value4").removeAttr('disabled');
+            }
+            else {
+                checkspace5 = -1;
+                document.getElementById("v5").value = "";
+                document.getElementById("value5").value ="";
+                $("#value5").removeAttr('disabled');
+            }
+
+        }
+
+        $(function(){
+            $("#includedContent").load("../cal.html");
+        });
+    </script>
+
+</head>
+<body>
+    <div id="myModalspace" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Not space!!!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="myModalchar" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Not Character!!!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>Lab Bootstrap</li>
+            <li class="active">Example</li>
+        </ol>
+        <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="#Layout">Layout</a></li>
+            <li><a data-toggle="tab" href="#Element">Element</a></li>
+            <li><a data-toggle="tab" href="#Available">Available</a></li>
+            <li class="active"><a data-toggle="tab" href="#jQuery">jQuery</a></li>
+            <li><a data-toggle="tab" href="#Calculatorr">Calculator</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="Layout" class="tab-pane fade">
+                <div class="panel panel-primary" style="border-top-width: 0px; margin-top: 5px;">
+                    <div class="panel-heading" style="margin-top: 5px">Grid System</div>
+                        <div class="panel-body">
+                            XS
+                            <div class="row">
+                                <script>
+                                    for (var i = 1 ; i <= 12 ; i++){
+                                        document.write(
+                                            '<div class="col-xs-1">'+
+                                            '<div class="well" style="text-align: center">'+i+'</div>'+
+                                            '</div>'
+                                        );
+                                    }
+                                </script>
+                            </div>
+                            SM
+                            <div class="row">
+                                <script>
+                                    for (var i = 1 ; i <= 12 ; i++){
+                                        document.write(
+                                            '<div class="col-sm-1">'+
+                                            '<div class="well" style="text-align: center">'+i+'</div>'+
+                                            '</div>'
+                                        );
+                                    }
+                                </script>
+                            </div>
+                            MD
+                            <div class="row">
+                                <script>
+                                    for (var i = 1 ; i <= 12 ; i++){
+                                        document.write(
+                                            '<div class="col-md-1">'+
+                                            '<div class="well" style="text-align: center">'+i+'</div>'+
+                                            '</div>'
+                                        );
+                                    }
+                                </script>
+                            </div>
+                            LG
+                            <div class="row">
+                                <script>
+                                    for (var i = 1 ; i <= 12 ; i++){
+                                        document.write(
+                                            '<div class="col-lg-1">'+
+                                            '<div class="well" style="text-align: center">'+i+'</div>'+
+                                            '</div>'
+                                        );
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div id="Element" class="tab-pane fade">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-primary" style="border-top-width: 0; margin-top: 5px;">
+                        <div class="panel-heading" style="margin-top: 5px" data-toggle="collapse" data-target="#textfield" aria-expanded="false">Textfield</div>
+                            <div class="collapse" id="textfield">
+                                <div class="panel-body">
+                                    <input type="text" placeholder="Textfield">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#datefield" aria-expanded="false">Datefield</div>
+                        <div class="collapse" id="datefield">
+                            <div class="panel-body">
+                                <input type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#button" aria-expanded="false">Button</div>
+                        <div class="collapse" id="button">
+                            <div class="panel-body">
+                                <button class="btn btn-default">Default</button>
+                                <button class="btn btn-primary">Primary</button>
+                                <button class="btn btn-success">Success</button>
+                                <button class="btn btn-info">Info</button>
+                                <button class="btn btn-warning" disabled>Warning</button>
+                                <button class="btn btn-danger">Danger</button>
+                                <button class="btn btn-link">Link</button>
+                                <br/>
+                                <button class="btn btn-default btn-lg">Default</button>
+                                <button class="btn btn-primary">Primary</button>
+                                <button class="btn btn-success btn-sm">Success</button>
+                                <button class="btn btn-info btn-xs">Info</button>
+                                <button class="btn btn-warning" disabled>Warning</button>
+                                <button class="btn btn-danger" disabled>Danger</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#text" aria-expanded="false">Text</div>
+                        <div class="collapse" id="text">
+                            <div class="panel-body">
+                                <script>
+                                    for (var i = 65 ; i < 91 ; i++){
+                                        document.write('<b>'+String.fromCharCode(i)+'</b>'+" ");
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#radio" aria-expanded="false">Radio</div>
+                        <div class="collapse" id="radio">
+                            <div class="panel-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="radio">
+                                                <label><input type="radio" name="optradio">cat</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="optradio">dog</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradioInline">cat
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradioInline">dog
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradioInline">tiger
+                                            </label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#checkbox" aria-expanded="false">Checkbox</div>
+                        <div class="collapse" id="checkbox">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox">cat</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" disabled>dog</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox">cat
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox">dog
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox">tiger
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#file" aria-expanded="false">File</div>
+                        <div class="collapse" id="file">
+                            <div class="panel-body">
+                                <input type="file">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#table" aria-expanded="false">Table</div>
+                        <div class="collapse" id="table">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#form" aria-expanded="false">Form</div>
+                        <div class="collapse" id="form">
+                            <div class="panel-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <b>Email address</b> <input type="email" class="form-control" id="emailaddr">
+                                            </div>
+                                            <div class="form-group">
+                                               <b>Password</b>  <input type="password" class="form-control" id="pwdd">
+                                            </div>
+                                            <button type="submit" class="btn btn-default">Submit</button><br/><br/>
+                                            <div><b>Inline</b></div>
+                                            <form class="form-inline">
+                                                <input type="email" placeholder="Email">
+                                                <input type="password" placeholder="Password">
+                                                <input type="checkbox"> Remember me
+                                                <button type="submit" class="btn btn-default">Sign in</button>
+                                            </form>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                               <b>Email</b>  <input type="email" class="form-control" id="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <b>Password</b> <input type="password" class="form-control" id="pwd">
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox"> Remember me</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-default">Sign in</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                     <div class="panel panel-warning">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#modal" aria-expanded="false">Modal</div>
+                            <div class="collapse" id="modal">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Modal Small</button>
+                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" >
+                                                <div class="modal-dialog modal-sm" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title" style="text-align: center">Modal Small</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <span class="glyphicon glyphicon-modal-window"> Hellowolrd</span>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modalDefault">Modal Default</button>
+                                            <div class="modal fade modalDefault" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog modalDefault" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title" style="text-align: center">Modal Default</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <span class="glyphicon glyphicon-modal-window"> Hellowolrd</span>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Modal Lange</button>
+                                            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                                                            <h4 class="modal-title alert alert-info" style="text-align: center">Modal Default</h4>
+                                                        </div>
+
+
+                                                        <div class="modal-body">
+                                                            <div class="form-horizontal">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                            <div class="form-group">
+                                                                                <label for="first-name" class="control-label col-lg-4"><b>Firstname</b></label>
+                                                                                <div class="col-lg-8">
+                                                                                    <input type="text" class="form-control" id="first-name" placeholder="Firstname">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                            <div class="form-group">
+                                                                                <label for="last-name" class="control-label col-lg-2"><b>Lastname</b></label>
+                                                                                <div class="col-lg-8">
+                                                                                    <input type="text" class="form-control" id="last-name" placeholder="Lastname">
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <br/><br/>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="address" class="control-label col-lg-2"><b>Address</b></label>
+                                                                        <div class="col-lg-9">
+                                                                            <input type="text" class="form-control" id="address" placeholder="Address">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-offset-2 col-lg-6">
+                                                                            <input type="checkbox"> Home
+                                                                            <input type="checkbox"> TownHouse
+                                                                            <input type="checkbox"> Condo
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-offset-2 col-lg-6">
+                                                                            <input type="radio" name="radio2">Male
+                                                                            <input type="radio" name="radio2">FeMale
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Available" class="tab-pane fade" style="border-top-width: 0px; margin-top: 5px;">
+                <img src="../img/fof.png" class="img-responsive" alt="Cinque Terre" width="304" height="236">
+            </div>
+            <div id="jQuery" class="tab-pane fade in active">
+                <div class="panel panel-primary" style="border-top-width: 0px; margin-top: 5px;">
+                    <div class="panel-heading" style="margin-top: 5px">Lab jQuery</div>
+                        <div class="panel-body">
+                            <div class="form-horizontal" id="jqueryForm">
+                                <div class="row">
+                                        <div class="form-group">
+                                            <label for="value1" class="control-label col-lg-1"><b>Value1</b></label>
+                                            <div class="col-lg-4">
+                                                <input type="text" class="form-control" id="value1" placeholder="value 1">
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <input type="button" class="btn btn-default" id="ok1" value="OK" >
+                                                <input type="button" class="btn btn-default" id="change1" value="Change" onclick="change(this)">
+                                                <label class="control-label col-lg-offset-2"><b>Current Value</b></label>
+                                            </div>
+                                            <div class=" col-lg-2">
+                                                <input type="text" id="v1" class="form-control" placeholder="value 1" disabled>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="value2" class="control-label col-lg-1" style="color: #2b669a"><b>Value2</b></label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" id="value2" placeholder="value 2">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="button" class="btn btn-primary" id="ok2" value="OK" >
+                                            <input type="button" class="btn btn-primary" id="change2" value="Change" onclick="change(this)">
+                                            <label class="control-label col-lg-offset-2" style="color: #2b669a"><b>Current Value</b></label>
+                                        </div>
+                                        <div class=" col-lg-2">
+                                            <input type="text" id="v2" class="form-control" placeholder="value 2" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="value3" class="control-label col-lg-1" style="color: green"><b>Value3</b></label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" id="value3" placeholder="value 3">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="button" class="btn btn-success" id="ok3" value="OK" >
+                                            <input type="button" class="btn btn-success" id="change3" value="Change" onclick="change(this)">
+                                            <label class="control-label col-lg-offset-2" style="color: green"><b>Current Value</b></label>
+                                        </div>
+                                        <div class=" col-lg-2">
+                                            <input type="text" id="v3" class="form-control" placeholder="value 3" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="value4" class="control-label col-lg-1" style="color: goldenrod"><b>Value4</b></label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" id="value4" placeholder="value 4">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="button" class="btn btn-warning" id="ok4" value="OK" >
+                                            <input type="button" class="btn btn-warning" id="change4" value="Change" onclick="change(this)">
+                                            <label class="control-label col-lg-offset-2"  style="color: goldenrod"><b>Current Value</b></label>
+                                        </div>
+                                        <div class=" col-lg-2">
+                                            <input type="text" id="v4" class="form-control" placeholder="value 4" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="value5" class="control-label col-lg-1" style="color: brown"><b>Value5</b></label>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" id="value5" placeholder="value 5">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="button" class="btn btn-danger" id="ok5" value="OK" >
+                                            <input type="button" class="btn btn-danger" id="change5" value="Change" onclick="change(this)">
+                                            <label class="control-label col-lg-offset-2"  style="color: brown"><b>Current Value</b></label>
+                                        </div>
+                                        <div class=" col-lg-2">
+                                            <input type="text" id="v5" class="form-control" placeholder="value 5" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-1 col-lg-4">
+                                            <input type="text" class="form-control" id="plus" disabled>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <input type="button" class="btn btn-primary" id="plus1" value="Plus" onclick="plus()">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-1 col-lg-4">
+                                            <input type="text" class="form-control" id="multi" disabled>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <input type="button" class="btn btn-primary" id="multi1" value="Multiply" onclick="multi()">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-1 col-lg-1">
+                                            <input type="submit" class="form-control btn btn-primary" id="summit">
+
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <input type="reset" class="form-control btn btn-danger" id="reset">
+                                        </div>
+
+
+                                        <div class="col-lg-offset-2 col-lg-3">
+                                            <input type="button" class="btn btn-default"  id="randomColor" value="Random Color">
+                                            <input type="reset" value="Clear" class="btn btn-danger" id="clearColor">
+                                        </div>
+                                        <!--<div class="col-lg-offset-5">-->
+                                            <!---->
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <table id="HistoryPlus">History Plus:</table>
+
+                                    </div>
+                                    <div class="col-lg-offset-3 col-lg-2">
+                                        <table id="HistoryMul">History Multiply:</table>
+                                    </div>
+
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+            <div id="Calculatorr" class="tab-pane fade">
+
+                <div class="panel panel-primary" style="border-top-width: 0; margin-top: 5px;">
+                    <div class="panel-heading">Calculator</div>
+                    <div class="panel-body">
+                        <div id="includedContent"></div>
+
+                        <!--<div class="form-horizontal">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-lg-offset-2 col-lg-3">-->
+                                    <!--<input type="text" class="form-control">-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="row">-->
+                                <!--<div class="col-lg-offset-2 col-lg-2">-->
+                                    <!--<input class="btn" type="button" value="1">-->
+                                    <!--<input class="btn" type="button" value="2">-->
+                                    <!--<input class="btn" type="button" value="3">-->
+                                    <!--<input class="btn" type="button" value="4">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

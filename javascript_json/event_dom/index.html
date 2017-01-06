@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <button onclick="clickk()">Click me</button>
+    <button onclick="dbclick()">Click me</button>
+    <button onmousedown="mousedown()">Click me</button>
+    <button onmouseover="alert('Over')">Click me</button>
+
+    <button onclick="myFunction()">Click Me</button>
+    <p id="demo"></p>
+
+
+
+
+    <!--dom-->
+    <!--<h1 onmouseover="mouseover(this)" onmouseout="mouseout(this)">OUT</h1>-->
+
+    <script>
+
+        function clickk() {
+            alert("Click");
+        }
+        function dbclick() {
+            alert("dbClick");
+        }
+        function mousedown() {
+            alert("mouse down");
+        }
+        function mouseup() {
+            alert("mouse up");
+        }
+        function mouseover(ob) {
+            ob.innerHTML ="OVER";
+        }
+        function mouseout(ob) {
+            ob.innerHTML ="OUT";
+        }
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello World";
+        }
+    </script>
+
+
+</body>
+</html>

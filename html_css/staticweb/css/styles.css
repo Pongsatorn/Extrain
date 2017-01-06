@@ -1,0 +1,15 @@
+.button {
+    background-color: #4CAF50;
+    border: solid 1px royalblue;
+    padding: 10px 5px;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+
+}
+
+.button2 {background-color: #008CBA;}
+.button3 {background-color: #f44336;}
+.button4 {background-color: #e7e7e7; color: black;}
+.button5 {background-color: lightgoldenrodyellow; color: black; border-radius: 50px}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Syntax , Scope and Function</title>
+</head>
+<body>
+
+    <!--
+    String, Number, Boolean,Array,Object,Json object
+    -->
+
+    <input type="button" value="click me !" onclick="show()">
+
+
+<script>
+
+
+   function print() {
+       return "Hello world";
+   }
+   function show() {
+       alert("Hello wolrd")
+   }
+   function demo() {
+       alert(Math.abs(-10));
+   }
+
+//   document.write(print());
+
+
+   function person(first, last, age) {
+       this.firstName = first;
+       this.lastName = last;
+       this.age = age;
+
+   }
+   var my = new person("Keng", "sss", 21);
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
